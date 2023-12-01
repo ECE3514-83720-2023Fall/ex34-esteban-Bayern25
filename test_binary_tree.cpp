@@ -65,6 +65,23 @@ TEST_CASE("Test basic operations", "[binary_tree]") {
 
 }
 
+TEST_CASE("Test basic operations part 2", "[binary_tree]") {
+
+    BinaryTree<ItemType, FunctionType> T1("A");
+    REQUIRE_FALSE(T1.isEmpty());
+    REQUIRE(T1.rootData() == "A");
+
+    BinaryTree<ItemType, FunctionType> T2("B");
+    BinaryTree<ItemType, FunctionType> T3("C");
+
+    T2.attachLeft("D");
+    T2.attachRight("E");
+
+    REQUIRE_NOTHROW(T1.attachLeftSubtree(T2));
+    REQUIRE_NOTHROW(T1.attachRightSubtree(T3));  
+
+}
+
 TEST_CASE("Test order traversal", "[binary_tree]") {
 
   BinaryTree<ItemType, FunctionType> T1("A");
